@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Page de connexion</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./loginpage.css">
+</head>
+<body>
+	<header class="wrapper">
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li id="projects_button"> <a href="./index.html">projets</a></li>
+				<li id="contact_button">contact</li>
+				<li class="login-btn">login</li>
+				<li><img src="./Portfolio-architecte-sophie-bluel/FrontEnd/assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="login_section">
+		<h1 class="login-title">Log In</h1>
+		<form class="loginForm" id="loginForm">
+			<p class="email-text">E-mail</p>
+			<input type="email" id="email" required>
+			<p class="mdp_text">Mot de passe</p>
+			<input type="password" id="password" required>
+			<input type="submit" value="Se connecter">
+
+			<a id="mdp_forget" href="#">Mot de passe oublié</a>
+		</form>
+	</section>
+
+<script src="./login.js"></script>
+</body>
+</html>

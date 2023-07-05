@@ -1,0 +1,797 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	max-width: 1140px;
+	margin: auto;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+}
+
+section {
+	margin: 50px 0;
+}
+
+h1 {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C;
+}
+
+h1>span {
+	font-family: 'Work Sans';
+	font-size: 10px;
+	letter-spacing: 0.1em;
+}
+
+h2 {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+}
+
+
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+
+
+li a {
+
+	text-decoration: none;
+	color: #0a0a0a;
+}
+
+#introduction {
+	display: flex;
+	align-items: center;
+}
+
+#introduction figure {
+	flex: 1;
+}
+
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1;
+}
+
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+}
+
+input[type="submit"] {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin: 2em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em;
+}
+
+button {
+	border-radius: 60px;
+	border-style: none;
+	padding: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #1D6154;
+	border: solid 1px;
+	background-color: white;
+}
+
+.btn-filter {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 40px;
+}
+
+button:hover {
+	background-color: #1D6154;
+	color: white;
+}
+
+.hide {
+	display: none;
+}
+
+/* fenêtre modale */
+
+.gallery-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 300px;
+	background-color: #fefefe;
+	padding: 20px;
+	border: 1px solid #888;
+	height: 630px;
+	width: 730px;
+	position: relative;
+	width: 630px;
+	height: 731px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.close {
+	float: right;
+	cursor: pointer;
+	color: #0a0a0a;
+}
+
+.modal-btn {
+	margin: 10px;
+	cursor: pointer;
+}
+
+
+
+
+.back-arrow {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.back-arrow {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.align {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: baseline;
+	gap: 30px;
+
+}
+
+.modal {
+	height: 730px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+	position: absolute;
+	font-size: 30px;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.modal-content h2 {
+
+	padding: 30px 20px;
+	font-family: Work Sans;
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	color: #0a0a0a;
+
+}
+
+.modal {
+	display: none;
+}
+
+.modal.show-modal {
+	display: block;
+}
+
+.modal-content img {
+	margin-top: 15px;
+	width: 76px;
+	height: 102px;
+
+
+	object-fit: cover;
+}
+
+.gallery-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+#previewContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.previewImage {
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	object-fit: cover;
+}
+
+#uploadForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#photoInput {
+	border-radius: 60px;
+	border-style: none;
+	padding: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #1D6154;
+	border: solid 1px;
+	background-color: white;
+}
+
+.hide-filter {
+	display: none;
+}
+
+.container {
+	max-width: 400px;
+	width: 100%;
+	background: #5874c2;
+	padding: 30px;
+	border-radius: 30px;
+}
+
+.img-area {
+	position: relative;
+	width: 150px;
+	height: 150px;
+
+	margin-bottom: 30px;
+	border-radius: 15px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.img-area .icon {
+	font-size: 100px;
+}
+
+.img-area h3 {
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 6px;
+}
+
+.img-area p {
+	color: #999;
+}
+
+.img-area p span {
+	font-weight: 600;
+}
+
+.img-area img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	z-index: 100;
+}
+
+
+.card-modal {
+	position: relative;
+}
+
+.icon-modal {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 28px;
+	height: 20px;
+	border-radius: 2px;
+	color: #fff;
+	background-color: #0a0a0a;
+	position: absolute;
+	margin-left: 42px;
+	margin-top: -121px;
+	cursor: pointer;
+}
+
+
+.deletePhoto {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.deletePhoto svg {
+	width: 16px;
+	height: 16px;
+}
+
+.deletePhoto svg path {
+	fill: #ff0000;
+
+}
+
+
+#container {
+	text-align: center;
+	background-color: #E8F1F6;
+	width: 420px;
+	height: 169px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.custom-file-upload {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #CBD6DC;
+	color: #306685;
+	cursor: pointer;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 500;
+
+}
+
+
+#preview {
+	width: 129px;
+	height: 193px;
+	overflow: hidden;
+	object-fit: cover
+}
+
+.custom-file-upload.hide {
+	display: none;
+}
+
+.hide {
+	display: none;
+}
+
+
+
+/* éditon barre */
+
+.mode_edition_bar {
+
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	gap: 10px;
+	list-style-type: none;
+	background-color: #0a0a0a;
+	color: #fefefe;
+	padding: 10px;
+
+
+}
+
+.mode_edition_bar .icon_txt_edition {
+
+	display: flex;
+	gap: 10px;
+	padding: 10px;
+
+
+}
+
+.publier_button {
+
+	background: #FFFFFF;
+	border-radius: 60px;
+	color: #0a0a0a;
+	font-size: 14px;
+	padding: 10px 15px;
+	font-weight: bold;
+	cursor: pointer;
+
+}
+
+.fa-pen-to-square {
+
+	font-size: 15px;
+}
+
+#logo_insta {
+
+	width: 19px;
+	height: 19px;
+	display: flex;
+}
+
+.logo_projets {
+	display: flex;
+	align-items: center;
+
+}
+
+
+
+
+#contact {
+	width: 50%;
+	margin: auto;
+}
+
+#contact>* {
+	text-align: center;
+
+}
+
+#contact h2 {
+	margin-bottom: -7px;
+}
+
+#contact form {
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label {
+	margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.logo_under_img {
+
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 15px;
+	margin-left: 55px;
+
+}
+
+.logo_txt_under_img {
+
+	cursor: pointer;
+}
+
+
+/* modal 2  */
+
+#titleInput {
+	width: 420px;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+}
+
+#categoryInput {
+	width: 420px;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#txt_titre {
+
+	padding-right: 391px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+
+}
+
+#txt_category {
+
+	padding-right: 358px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+.barre_separation {
+
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin-top: 40px;
+	margin-bottom: 30px;
+
+
+}
+
+.barre_separation_modal1{
+
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin-top: 44px;
+	margin-bottom: 30px;
+}
+
+#submit_work_button {
+
+	width: 237px;
+	height: 36px;
+	background: #A7A7A7;
+	border-radius: 60px;
+	color: #fefefe;
+	padding: 10px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+#logout {
+
+	cursor: pointer;
+}
+
+
+
+#logout:hover {
+
+	color: #B1663C;
+}
+
+
+
+#projets:hover {
+
+	color: #B1663C;
+}
+
+#btn-supprimer{
+
+	color: red;
+	text-decoration: none;
+	margin-top: 10px;
+
+}
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #333; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 1; /* Add a z-index if needed */
+	left: 50%; /* Center the snackbar */
+	bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+	However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+
+

@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sélectionner les filtres de galerie
   const galleryfilters = document.querySelector(".btn-filter");
-  // Ajouter un gestionnaire d'événement pour le clic sur les filtres de galerie
+  // Gestionnaire d'événement clic sur les filtres de galerie
   galleryfilters.addEventListener('click', (filter) => {
     const categoryId = filter.target.dataset.categoryId;
     // Appeler la fonction pour filtrer les objets en fonction de la catégorie sélectionnée
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Gestionnaire d'événement pour le clic sur les flèches de retour
+  // Gestionnaire d'événement clic sur les flèches de retour
   backArrows.forEach((arrow) => {
     arrow.addEventListener('click', (event) => {
       const targetModalId = event.target.getAttribute('data-modal');
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Gestionnaire d'événement pour le clic sur les boutons modaux
+  // Gestionnaire d'événement  clic sur les boutons modaux
   modalBtns.forEach((btn) => {
     btn.addEventListener('click', (event) => {
       const targetModalId = event.target.getAttribute('data-modal');
@@ -271,12 +271,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sélectionner les icônes de fermeture
   const closeIcons = document.querySelectorAll('.close');
-  // Ajouter un gestionnaire d'événement pour le clic sur les icônes de fermeture
+  //Gestionnaire d'événement clic sur les icônes de fermeture
   closeIcons.forEach((icon) => {
     icon.addEventListener('click', closeModal);
   });
 
-  // Ajouter un gestionnaire d'événement pour le clic en dehors de la modale pour la fermer
+  // Gestionnaire d'événement clic en dehors de la modale pour la fermer
   window.addEventListener('click', (event) => {
     if (event.target.classList.contains('modal')) {
       closeModal();
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
       logoutLink.style.display = "none";
     }
 
-    // Ajouter un gestionnaire d'événement pour le clic sur le lien de déconnexion
+    // Gestionnaire d'événement clic sur le lien de déconnexion
     logoutLink.addEventListener("click", function () {
       // Supprimer le jeton JWT du stockage local
       localStorage.removeItem("jwtToken");
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sélectionner le bouton de connexion
   const loginBtn = document.querySelector("#login");
-  // Gestionnaire d'événement pour le clic sur le bouton de connexion
+  // Gestionnaire d'événement clic sur le bouton de connexion
   loginBtn.addEventListener("click", function () {
     // Vérifier si l'utilisateur est hors ligne
     if (!navigator.onLine) {
@@ -321,6 +321,9 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "loginPage.html";
     }
   });
+
+  // Afficher l'aperçu de l'image ajoutée
+
   const input = document.getElementById('file-input');
   const previewImg = document.getElementById('preview');
 
@@ -337,6 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Ajouter photos //
+
   const titleInput = document.getElementById('titleInput');
   const categoryInput = document.getElementById('categoryInput');
   const fileInput = document.getElementById('file-input');
@@ -358,28 +362,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
- // Fonction pour mettre à jour la couleur du bouton
-function updateSubmitButtonColor() {
-  if (titleInput.value.trim() !== '' && categoryInput.value !== '' && fileInput.files.length > 0) {
-    submitButton.style.backgroundColor = '#1D6154';
-  } else {
-    submitButton.style.backgroundColor = '';
+  // Fonction pour mettre à jour la couleur du bouton
+  function updateSubmitButtonColor() {
+    if (titleInput.value.trim() !== '' && categoryInput.value !== '' && fileInput.files.length > 0) {
+      submitButton.style.backgroundColor = '#1D6154';
+    } else {
+      submitButton.style.backgroundColor = '';
+    }
   }
-}
 
-// Événements pour appeler la fonction de mise à jour de la couleur
-titleInput.addEventListener('input', updateSubmitButtonColor);
-categoryInput.addEventListener('change', updateSubmitButtonColor);
-fileInput.addEventListener('change', updateSubmitButtonColor);
+  // Appeler la fonction de mise à jour de la couleur
+  titleInput.addEventListener('input', updateSubmitButtonColor);
+  categoryInput.addEventListener('change', updateSubmitButtonColor);
+  fileInput.addEventListener('change', updateSubmitButtonColor);
 
-// Appel initial de la fonction pour vérifier la couleur du bouton au chargement de la page
-updateSubmitButtonColor();
+  // Vérification de la couleur du bouton au chargement de la page
+  updateSubmitButtonColor();
 
-// Événement click sur le bouton
-submitButton.addEventListener('click', function() {
-  if (titleInput.value.trim() === '' || categoryInput.value === '' || fileInput.files.length === 0) {
-    alert('Veuillez remplir tous les champs obligatoires.');
-  }
+  // Événement click sur le bouton
+  submitButton.addEventListener('click', function () {
+    if (titleInput.value.trim() === '' || categoryInput.value === '' || fileInput.files.length === 0) {
+      alert('Veuillez remplir tous les champs obligatoires.');
+    }
 
 
     const formData = new FormData();

@@ -302,15 +302,14 @@ button:hover {
 	top: 10px;
 	left: 10px;
 	cursor: pointer;
-	font-size: 24px;
+	font-size: 34px;
 }
 
-.back-arrow {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	cursor: pointer;
-	font-size: 20px;
+.fa-image{
+
+	color: #CBD6DC;
+	font-size: 58px;
+	margin-bottom: -18px;
 }
 
 .align {
@@ -528,8 +527,8 @@ button:hover {
 
 
 #preview {
-	width: 129px;
-	height: 193px;
+	width: 154px;
+	height: 226px;
 	overflow: hidden;
 	object-fit: cover
 }
@@ -551,6 +550,7 @@ button:hover {
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
+	align-items: center;
 	gap: 10px;
 	list-style-type: none;
 	background-color: #0a0a0a;
@@ -613,7 +613,7 @@ button:hover {
 }
 
 #contact h2 {
-	margin-bottom: -7px;
+	margin-bottom: 16px;
 }
 
 #contact form {
@@ -753,7 +753,7 @@ button:hover {
 	visibility: hidden; 
 	min-width: 250px; 
 	margin-left: -125px; 
-	background-color: #64e075; 
+	background-color: #87d0bf; 
 	color: #fff; 
 	text-align: center;
 	border-radius: 2px; 

@@ -26,7 +26,7 @@ document.querySelector("#loginForm").addEventListener("submit", async function(e
         if (result.token) {
           localStorage.setItem("jwtToken", result.token);
           window.location.href = "index.html";
-          hideFilters();
+          
         } else {
           alert("Identifiants incorrects. Veuillez réessayer.");
         }
@@ -41,12 +41,7 @@ document.querySelector("#loginForm").addEventListener("submit", async function(e
   }
 });
 
-function hideFilters() {
-  const filters = document.querySelector(".btn-filter");
-  if (filters) {
-    filters.style.display = "none";
-  }
-}
+
 
 
 

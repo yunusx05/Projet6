@@ -1,74 +1,70 @@
-// Fonction pour se déconnecter
-function logout() {
-  // Retirer le jeton du local storage
-  localStorage.removeItem("jwtToken");
-  // Recharger la page
-  location.reload();
-}
-
-// Fonction pour vérifier si l'utilisateur est connecté
-function checkLoggedIn() {
-  // Vérifier si le jeton JWT existe dans le local storage
-  if (localStorage.getItem("jwtToken")) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-// Fonction pour afficher la page de l'utilisateur connecté
-function displayLoggedInPage() {
-  // Modifier les éléments qui doivent être visibles ou cachés lorsque l'utilisateur est connecté
-  const logoutButton = document.getElementById("logout");
-  const loginButton = document.getElementById("login");
-  const modalButton = document.querySelector(".modal-btn");
-  const filterButton = document.querySelector(".btn-filter");
-  const editButton = document.querySelector(".logo_projets");
-  const modeEditionBar = document.querySelector(".mode_edition_bar");
-  const logoUnderImg = document.querySelector(".logo_under_img");
-
-  logoutButton.style.display = "block";
-  loginButton.style.display = "none";
-  modalButton.style.display = "block";
-  filterButton.style.display = "none";
-  editButton.style.display = "flex";
-  modeEditionBar.style.display = "flex";
-  logoUnderImg.style.display = "block";
-}
-
-// Fonction pour afficher la page de l'utilisateur non connecté
-function displayLoggedOutPage() {
-  // Modifier les éléments qui doivent être visibles ou cachés lorsque l'utilisateur n'est pas connecté
-  const logoutButton = document.getElementById("logout");
-  const loginButton = document.getElementById("login");
-  const modalButton = document.querySelector(".modal-btn");
-  const filterButton = document.querySelector(".btn-filter");
-  const editButton = document.querySelector(".logo_projets");
-  const modeEditionBar = document.querySelector(".mode_edition_bar");
-  const logoUnderImg = document.querySelector(".logo_under_img");
-
-  logoutButton.style.display = "none";
-  loginButton.style.display = "block";
-  modalButton.style.display = "none";
-  filterButton.style.display = "flex";
-  editButton.style.display = "none";
-  modeEditionBar.style.display = "none";
-  logoUnderImg.style.display = "none";
-}
-
-
-
-// Lorsque le contenu du document est chargé
+// Lorsque le contenu du DOM est chargé
 document.addEventListener("DOMContentLoaded", function () {
   if (checkLoggedIn()) {
     console.log('online')
     displayLoggedInPage();
   } else {
     displayLoggedOutPage();
+    console.log('offline')
+  }
+
+  // Fonction pour vérifier si l'utilisateur est connecté
+  function checkLoggedIn() {
+    // Vérifier si le jeton JWT existe dans le local storage
+    if (localStorage.getItem("jwtToken")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Fonction pour afficher la page de l'utilisateur connecté
+
+  function displayLoggedInPage() {
+    // Modifier les éléments qui doivent être visibles ou cachés lorsque l'utilisateur est connecté
+    const logoutButton = document.getElementById("logout");
+    const loginButton = document.getElementById("login");
+    const modalButton = document.querySelector(".modal-btn");
+    const filterButton = document.querySelector(".btn-filter");
+    const editButton = document.querySelector(".logo_projets");
+    const modeEditionBar = document.querySelector(".mode_edition_bar");
+    const logoUnderImg = document.querySelector(".logo_under_img");
+
+    logoutButton.style.display = "block";
+    loginButton.style.display = "none";
+    modalButton.style.display = "block";
+    filterButton.style.display = "none";
+    editButton.style.display = "flex";
+    modeEditionBar.style.display = "flex";
+    logoUnderImg.style.display = "block";
+  }
+
+  // Fonction pour afficher la page de l'utilisateur non connecté
+
+  function displayLoggedOutPage() {
+    // Modifier les éléments qui doivent être visibles ou cachés lorsque l'utilisateur n'est pas connecté
+    const logoutButton = document.getElementById("logout");
+    const loginButton = document.getElementById("login");
+    const modalButton = document.querySelector(".modal-btn");
+    const filterButton = document.querySelector(".btn-filter");
+    const editButton = document.querySelector(".logo_projets");
+    const modeEditionBar = document.querySelector(".mode_edition_bar");
+    const logoUnderImg = document.querySelector(".logo_under_img");
+
+    logoutButton.style.display = "none";
+    loginButton.style.display = "block";
+    modalButton.style.display = "none";
+    filterButton.style.display = "flex";
+    editButton.style.display = "none";
+    modeEditionBar.style.display = "none";
+    logoUnderImg.style.display = "none";
   }
 
 
-  // Ajouter un gestionnaire d'événement pour le clic sur le bouton de déconnexion
+
+
+
+  // Gestionnaire d'événement clic sur le bouton de déconnexion
   document.querySelector("#logout").addEventListener("click", function (event) {
     // Empêcher le comportement par défaut du bouton (rechargement de la page)
     event.preventDefault();
@@ -82,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function afficherGallery() {
+
     fetch('http://localhost:5678/api/works')
       .then((response) => response.json())
       .then((gallery) => {
@@ -147,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Œuvre supprimée avec succès !");
                 deleteIconModal.parentElement.remove();
                 afficherGallery();
-                showAlert('image supprimée ! ')
+                showSnackBar('Image supprimée avec succès ✔ ')
                 closeModal()
               } else {
                 console.log("Erreur lors de la suppression de l'œuvre.");
@@ -168,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Fonction pour afficher les catégories
+
   function afficherCategories() {
     // Effectuer une requête GET vers l'API pour récupérer les catégories
     fetch('http://localhost:5678/api/categories')
@@ -253,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Ajouter un gestionnaire d'événement pour le clic sur les flèches de retour
+  // Gestionnaire d'événement pour le clic sur les flèches de retour
   backArrows.forEach((arrow) => {
     arrow.addEventListener('click', (event) => {
       const targetModalId = event.target.getAttribute('data-modal');
@@ -262,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Ajouter un gestionnaire d'événement pour le clic sur les boutons modaux
+  // Gestionnaire d'événement pour le clic sur les boutons modaux
   modalBtns.forEach((btn) => {
     btn.addEventListener('click', (event) => {
       const targetModalId = event.target.getAttribute('data-modal');
@@ -285,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
- 
+
 
   // Lorsque le contenu du document est chargé
   document.addEventListener("DOMContentLoaded", function () {
@@ -325,28 +323,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   const input = document.getElementById('file-input');
   const previewImg = document.getElementById('preview');
-  
+
   input.addEventListener('change', function (event) {
     const file = event.target.files[0];
     const reader = new FileReader();
-  
+
     reader.onload = function (e) {
       previewImg.src = e.target.result;
     };
-  
+
     reader.readAsDataURL(file);
   });
-  
-  
-  // ajouter photos //
-  
+
+
+  // Ajouter photos //
   const titleInput = document.getElementById('titleInput');
   const categoryInput = document.getElementById('categoryInput');
   const fileInput = document.getElementById('file-input');
   const customFileUpload = document.querySelector('.custom-file-upload');
   const paragraph = document.querySelector('p');
   const previewContainer = document.getElementById('preview-container');
-  
+  const submitButton = document.querySelector('#submit_work_button');
+
   fileInput.addEventListener('change', function () {
     if (fileInput.files.length > 0) {
       customFileUpload.style.display = 'none';
@@ -358,21 +356,39 @@ document.addEventListener("DOMContentLoaded", function () {
       previewContainer.style.display = 'none';
     }
   });
-  
-  document.querySelector('#submit_work_button').addEventListener('click', function () {
-    
-    if (fileInput.files.length === 0 || titleInput.value.trim() === '' || categoryInput.value === '') {
-      alert('Veuillez remplir tous les champs obligatoires.');
-      return;
-    }
-  
+
+
+ // Fonction pour mettre à jour la couleur du bouton
+function updateSubmitButtonColor() {
+  if (titleInput.value.trim() !== '' && categoryInput.value !== '' && fileInput.files.length > 0) {
+    submitButton.style.backgroundColor = '#1D6154';
+  } else {
+    submitButton.style.backgroundColor = '';
+  }
+}
+
+// Événements pour appeler la fonction de mise à jour de la couleur
+titleInput.addEventListener('input', updateSubmitButtonColor);
+categoryInput.addEventListener('change', updateSubmitButtonColor);
+fileInput.addEventListener('change', updateSubmitButtonColor);
+
+// Appel initial de la fonction pour vérifier la couleur du bouton au chargement de la page
+updateSubmitButtonColor();
+
+// Événement click sur le bouton
+submitButton.addEventListener('click', function() {
+  if (titleInput.value.trim() === '' || categoryInput.value === '' || fileInput.files.length === 0) {
+    alert('Veuillez remplir tous les champs obligatoires.');
+  }
+
+
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
     formData.append('title', titleInput.value);
     formData.append('category', categoryInput.value);
-  
+
     const monToken = localStorage.getItem("jwtToken");
-  
+
     fetch('http://localhost:5678/api/works', {
       method: 'POST',
       headers: {
@@ -388,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(data => {
         console.log(data);
-        showAlert('image ajoutée !')
+        showSnackBar('Image ajoutée avec succès ✔ ')
         afficherGallery()
         closeModal()
       })
@@ -396,19 +412,21 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Une erreur s'est produite :", error.message);
       });
   });
-  
-  
-  function showAlert(message) {
+
+
+  function showSnackBar(message) {
     const snackbar = document.getElementById("snackbar");
     snackbar.textContent = message;
     snackbar.classList.add("show");
-  
+
     setTimeout(function () {
       snackbar.classList.remove("show");
     }, 3000);
   }
-  
-});
+})
+
+
+
 
 
 

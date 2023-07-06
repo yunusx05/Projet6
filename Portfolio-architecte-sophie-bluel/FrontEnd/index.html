@@ -16,18 +16,12 @@
 
 <body>
 
-	
-
-	<!-- The actual snackbar -->
-	<div id="snackbar">image supprimé </div>
-
+	<div id="snackbar"></div>
 	<ul class="mode_edition_bar">
-		<div class="icon_txt_edition">
-			<li><i class="fa-regular fa-pen-to-square"></i></li>
-			<li class="mode_edit">Mode édition</li>
-		</div>
-		<li class="publier_button">publier les changements</li>
 
+		<li><i class="fa-regular fa-pen-to-square"></i></li>
+		<li class="mode_edit">Mode édition</li>
+		<li class="publier_button">publier les changements</li>
 
 	</ul>
 	<header>
@@ -39,15 +33,14 @@
 				<li id="#contact"> <a href="#contact">contact</a></li>
 				<li> <a id="login" href="./loginPage.html">login</a></li>
 				<li id="logout" style="display: none;">logout</li>
-				<li><img id="logo_insta" src="./Portfolio-architecte-sophie-bluel/FrontEnd/assets/icons/instagram.png"
-						alt="Instagram"></li>
+				<li><img id="logo_insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<section id="introduction">
 			<figure>
-				<img src="./Portfolio-architecte-sophie-bluel/FrontEnd/assets/images/sophie-bluel.png" alt="">
+				<img src="./assets/images/sophie-bluel.png" alt="">
 				<div class="logo_under_img">
 					<i class="fa-regular fa-pen-to-square"></i>
 					<a class="logo_txt_under_img">modifier</a>
@@ -71,13 +64,11 @@
 				<div class="logo_projets">
 					<i class="fa-regular fa-pen-to-square"></i>
 					<a class="modal-btn" data-modal="modal1">modifier</a>
-
 				</div>
 			</div>
 
 			<h3 class="btn-filter"></h3>
 			<div class="button"></div>
-
 			<div class="gallery"> </div>
 		</section>
 		<section id="contact">
@@ -93,11 +84,9 @@
 				<input type="submit" value="Envoyer">
 			</form>
 
-			
-
 			<div class="modal" id="modal1">
 				<div class="modal-content">
-					<span class="close">x</span>
+					<span class="close">&times;</span>
 					<h2>Galerie photo</h2>
 					<div class="gallery-container">
 						<!-- Galerie d'images provenant de l'API -->
@@ -117,11 +106,11 @@
 					<span class="back-arrow" data-modal="modal1">&larr;</span>
 					<h2>Ajout photo</h2>
 
-
-
 					<div id="container">
+
+						<i class="fa-sharp fa-regular fa-image"></i>
 						<div id="preview-container" style="display: none;">
-							<img id="preview" src="" alt="Preview">
+							<img id="preview" src="#" alt="Preview">
 						</div>
 						<label for="file-input" class="custom-file-upload">
 							+ Ajouter une image
@@ -129,7 +118,6 @@
 						<p>jpg, png : 4mo max</p>
 						<input type="file" id="file-input" hidden>
 					</div>
-
 
 					<p id="txt_titre">Titre</p>
 					<input type="text" id="titleInput" name="title">
@@ -139,15 +127,11 @@
 						<!-- Options de catégorie -->
 					</select>
 
-					<!-- Icône de suppression -->
-
 					<div class="barre_separation"></div>
 					<button id="submit_work_button" type="button">Valider</button>
 				</div>
 				<div id="previewContainer"></div>
 			</div>
-
-
 
 		</section>
 	</main>
